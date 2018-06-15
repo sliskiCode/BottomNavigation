@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+
+    <string name="dashboard">DASHBOARD</string>
+    <string name="go_to_dashboard_second_level">go to dashboard second level</string>
+
+    <string name="home">HOME</string>
+    <string name="go_to_home_second_level">go to home second level</string>
+</resources>

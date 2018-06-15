@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/dashboard_nav_graph"
+            app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.slesarew.bottomnavigation.screen.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/dashboard_fragment">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_dashboardSecondLevelFragment"
+            app:destination="@id/dashboardSecondLevelFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_up"
+            app:popEnterAnim="@anim/slide_in_up"
+            app:popExitAnim="@anim/slide_out_up"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardSecondLevelFragment"
+        android:name="com.slesarew.bottomnavigation.screen.dashboardsecondlevel.DashboardSecondLevelFragment"
+        android:label="Dashboard Second Level"
+        tools:layout="@layout/dashboard_second_level_fragment">
+    </fragment>
+
+</navigation>
