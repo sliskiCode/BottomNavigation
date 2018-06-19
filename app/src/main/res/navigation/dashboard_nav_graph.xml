@@ -13,11 +13,7 @@
 
         <action
             android:id="@+id/action_dashboardFragment_to_dashboardSecondLevelFragment"
-            app:destination="@id/dashboardSecondLevelFragment"
-            app:enterAnim="@anim/slide_in_up"
-            app:exitAnim="@anim/slide_out_up"
-            app:popEnterAnim="@anim/slide_in_up"
-            app:popExitAnim="@anim/slide_out_up"/>
+            app:destination="@id/dashboardSecondLevelFragment"/>
 
     </fragment>
 

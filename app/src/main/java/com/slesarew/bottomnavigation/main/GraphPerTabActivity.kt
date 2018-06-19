@@ -9,9 +9,9 @@ import com.slesarew.bottomnavigation.extension.hideAllNavHostsExcept
 import com.slesarew.bottomnavigation.extension.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.bottom_navigation as bottomNavigation
 
-private const val NAV_HOST = "com.slesarew.bottomnavigation.main.MainActivity.NAV_HOST"
+private const val NAV_HOST = "com.slesarew.bottomnavigation.main.GraphPerTabActivity.NAV_HOST"
 
-class MainActivity : AppCompatActivity() {
+class GraphPerTabActivity : AppCompatActivity() {
 
     @IdRes
     private var currentNavHostId = R.id.dashboard_nav_host
