@@ -20,10 +20,12 @@ class GraphPerTabActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        savedInstanceState?.let {
-            currentNavHostId = it.getInt(NAV_HOST)
+        if (savedInstanceState == null) {
+            showNavHost(currentNavHostId)
+        } else {
+            currentNavHostId = savedInstanceState.getInt(NAV_HOST)
             setupActionBarWithNavController(currentNavHostId)
-        } ?: showNavHost(currentNavHostId)
+        }
 
         bottomNavigation.setOnNavigationItemSelectedListener { showNavHost(it.itemId) }
     }
