@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/home_tab">
+
+    <!-- Home Tab -->
+
+    <fragment
+        android:id="@id/home_tab"
+        android:name="com.slesarew.bottomnavigation.screen.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_homeSecondLevelFragment"
+            app:destination="@id/homeSecondLevelFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeSecondLevelFragment"
+        android:name="com.slesarew.bottomnavigation.screen.homesecondlevel.HomeSecondLevelFragment"
+        android:label="@string/title_home_second_level"
+        tools:layout="@layout/home_second_level_fragment" />
+
+    <!-- Dashboard Tab -->
+
+    <fragment
+        android:id="@id/dashboard_tab"
+        android:name="com.slesarew.bottomnavigation.screen.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/dashboard_fragment">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_dashboardSecondLevelFragment"
+            app:destination="@id/dashboardSecondLevelFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardSecondLevelFragment"
+        android:name="com.slesarew.bottomnavigation.screen.dashboardsecondlevel.DashboardSecondLevelFragment"
+        android:label="@string/title_dashboard_second_level"
+        tools:layout="@layout/dashboard_second_level_fragment" />
+
+    <!-- Profile Tab -->
+
+    <fragment
+        android:id="@id/profile_tab"
+        android:name="com.slesarew.bottomnavigation.screen.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/profile_fragment">
+
+        <action
+            android:id="@+id/action_profileFragment_to_profileSecondLevelFragment"
+            app:destination="@id/profileSecondLevelFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileSecondLevelFragment"
+        android:name="com.slesarew.bottomnavigation.screen.profilesecondlevel.ProfileSecondLevelFragment"
+        android:label="@string/title_profile_second_level"
+        tools:layout="@layout/profile_second_level_fragment" />
+
+</navigation>

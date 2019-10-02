@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="home_tab" type="id" />
+    <item name="dashboard_tab" type="id" />
+    <item name="profile_tab" type="id" />
+</resources>

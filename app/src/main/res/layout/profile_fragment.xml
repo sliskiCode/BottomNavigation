@@ -8,6 +8,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/go_to_dashboard_second_level" />
+        android:text="@string/go_to_profile_second_level" />
 
 </FrameLayout>
