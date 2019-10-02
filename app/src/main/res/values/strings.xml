@@ -1,11 +1,21 @@
 <resources>
-    <string name="app_name">BottomNavigation</string>
+    <string name="app_label">BottomNavigation</string>
+    <string name="app_name_one_graph">One graph</string>
+    <string name="app_name_graph_per_tab">Graph per tab</string>
+
     <string name="title_home">Home</string>
+    <string name="title_home_second_level">Home Second Level</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard_second_level">Dashboard Second Level</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_profile_second_level">Profile Second Level</string>
+
+    <string name="home">HOME</string>
+    <string name="go_to_home_second_level">go to home second level</string>
 
     <string name="dashboard">DASHBOARD</string>
     <string name="go_to_dashboard_second_level">go to dashboard second level</string>
 
-    <string name="home">HOME</string>
-    <string name="go_to_home_second_level">go to home second level</string>
+    <string name="profile">PROFILE</string>
+    <string name="go_to_profile_second_level">go to profile second level</string>
 </resources>

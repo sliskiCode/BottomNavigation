@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_nav_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.slesarew.bottomnavigation.screen.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/profile_fragment">
+
+        <action
+            android:id="@+id/action_profileFragment_to_profileSecondLevelFragment"
+            app:destination="@id/profileSecondLevelFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileSecondLevelFragment"
+        android:name="com.slesarew.bottomnavigation.screen.profilesecondlevel.ProfileSecondLevelFragment"
+        android:label="@string/title_profile_second_level"
+        tools:layout="@layout/profile_second_level_fragment" />
+
+</navigation>

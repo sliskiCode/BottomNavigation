@@ -1,54 +1,59 @@
 package com.slesarew.bottomnavigation.main
 
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.slesarew.bottomnavigation.R
 import com.slesarew.bottomnavigation.extension.hideAllNavHostsExcept
 import com.slesarew.bottomnavigation.extension.setupActionBarWithNavController
-import kotlinx.android.synthetic.main.activity_main.bottom_navigation as bottomNavigation
-
-private const val NAV_HOST = "com.slesarew.bottomnavigation.main.GraphPerTabActivity.NAV_HOST"
+import kotlinx.android.synthetic.main.activity_graph_per_tab.bottom_navigation as bottomNavigation
 
 class GraphPerTabActivity : AppCompatActivity() {
 
     @IdRes
-    private var currentNavHostId = R.id.dashboard_nav_host
+    private var currentTabId = R.id.home_tab
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_graph_per_tab)
 
-        if (savedInstanceState == null) {
-            showNavHost(currentNavHostId)
-        } else {
-            currentNavHostId = savedInstanceState.getInt(NAV_HOST)
-            setupActionBarWithNavController(currentNavHostId)
-        }
+        /**
+         * Showing home tab as first.
+         */
+        showNavHost(currentTabId)
 
-        bottomNavigation.setOnNavigationItemSelectedListener { showNavHost(it.itemId) }
+        /**
+         * Wiring bottom navigation click with navigation.
+         */
+        bottomNavigation.setOnNavigationItemSelectedListener { showNavHost(it.itemId).let { true } }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
+    override fun onBackPressed() =
+        findNavController(currentTabId)
+            .popBackStack()
+            .not()
+            .let { shouldClose ->
+                if (shouldClose) super.onBackPressed()
+            }
 
-        outState.putInt(NAV_HOST, currentNavHostId)
-    }
+    /**
+     * Setup code. Taken from documentation. ¯\_(ツ)_/¯
+     */
+    override fun onSupportNavigateUp(): Boolean =
+        findNavController(currentTabId).navigateUp()
 
-    override fun onBackPressed() {
-        val didPop = findNavController(currentNavHostId).popBackStack()
+    /**
+     * Function is responsible for switching content between tabs.
+     *
+     * 1. Cache current tab.
+     * 2. Finding graph by tab id and update ActionBar with it.
+     * 3. Hiding all graphs except new current tab id.
+     */
+    private fun showNavHost(@IdRes tabId: Int) {
+        currentTabId = tabId
 
-        if (!didPop) super.onBackPressed()
-    }
-
-    override fun onSupportNavigateUp(): Boolean = findNavController(currentNavHostId).navigateUp()
-
-    private fun showNavHost(@IdRes navHostId: Int): Boolean {
-        currentNavHostId = navHostId
-        setupActionBarWithNavController(currentNavHostId)
-        hideAllNavHostsExcept(currentNavHostId)
-
-        return true
+        setupActionBarWithNavController(currentTabId)
+        hideAllNavHostsExcept(currentTabId)
     }
 }

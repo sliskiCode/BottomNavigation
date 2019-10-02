@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/dashboard_nav_graph"
-            app:startDestination="@id/dashboardFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_nav_graph"
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.slesarew.bottomnavigation.screen.dashboard.DashboardFragment"
-        android:label="Dashboard"
+        android:label="@string/title_dashboard"
         tools:layout="@layout/dashboard_fragment">
 
         <action
             android:id="@+id/action_dashboardFragment_to_dashboardSecondLevelFragment"
-            app:destination="@id/dashboardSecondLevelFragment"/>
+            app:destination="@id/dashboardSecondLevelFragment" />
 
     </fragment>
 
     <fragment
         android:id="@+id/dashboardSecondLevelFragment"
         android:name="com.slesarew.bottomnavigation.screen.dashboardsecondlevel.DashboardSecondLevelFragment"
-        android:label="Dashboard Second Level"
-        tools:layout="@layout/dashboard_second_level_fragment">
-    </fragment>
+        android:label="@string/title_dashboard_second_level"
+        tools:layout="@layout/dashboard_second_level_fragment" />
 
 </navigation>
