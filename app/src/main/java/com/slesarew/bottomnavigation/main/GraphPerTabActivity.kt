@@ -7,8 +7,12 @@ import androidx.navigation.findNavController
 import com.slesarew.bottomnavigation.R
 import com.slesarew.bottomnavigation.extension.hideAllNavHostsExcept
 import com.slesarew.bottomnavigation.extension.setupActionBarWithNavController
+import com.slesarew.bottomnavigation.extension.toArrayList
+import com.slesarew.bottomnavigation.extension.toStack
 import java.util.Stack
 import kotlinx.android.synthetic.main.activity_graph_per_tab.bottom_navigation as bottomNavigation
+
+private const val TAB_IDS = "com.slesarew.bottomnavigation.main.GraphPerTabActivity.TAB_IDS"
 
 class GraphPerTabActivity : AppCompatActivity() {
 
@@ -20,14 +24,27 @@ class GraphPerTabActivity : AppCompatActivity() {
         setContentView(R.layout.activity_graph_per_tab)
 
         /**
-         * Showing home tab as first.
+         * In case of first launch home tab is presented for the user.
+         * In case of restoring state after process being killed we use saved tab id and show it to the user.
          */
-        showNavHost(R.id.home_tab)
+        savedInstanceState?.let {
+            tabIds = savedInstanceState.getIntegerArrayList(TAB_IDS).toStack()
+            showNavHost(tabIds.pop())
+        } ?: showNavHost(R.id.home_tab)
 
         /**
          * Wiring bottom navigation click with navigation.
          */
         bottomNavigation.setOnNavigationItemSelectedListener { showNavHost(it.itemId).let { true } }
+    }
+
+    /**
+     * Saving current tab id in case of application being killed by the OS.
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putIntegerArrayList(TAB_IDS, tabIds.toArrayList())
     }
 
     /**
